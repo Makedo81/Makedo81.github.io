@@ -91,8 +91,7 @@ $(document).ready(function() {
       url: requestUrl,
       method: 'POST',
       processData: false,
-      //contentType: "application/json; charset=utf-8",
-      contentType: "text/html; charset=utf-8",
+      contentType: "application/json; charset=utf-8",
       dataType: 'json',
       data: JSON.stringify({
         title: taskTitle,
