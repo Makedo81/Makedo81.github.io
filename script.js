@@ -81,7 +81,7 @@ $(document).ready(function() {
 
   function handleTaskUpdateRequest() {
     var parentEl = $(this).parents('[data-task-id]');
-    var taskId = parentEl.attr('data-task-id');
+    var id = parentEl.attr('data-task-id');
     var taskTitle = parentEl.find('[data-task-name-input]').val();
     var taskContent = parentEl.find('[data-task-content-input]').val();
     var requestUrl = apiRoot + 'updateTask';
@@ -93,7 +93,7 @@ $(document).ready(function() {
       contentType: "application/json; charset=utf-8",
       dataType: 'json',
       data: JSON.stringify({
-        id: taskId,
+        id: id,
         title: taskTitle,
         content: taskContent
       }),
@@ -107,12 +107,12 @@ $(document).ready(function() {
 
   function handleTaskDeleteRequest() {
     var parentEl = $(this).parents('[data-task-id]');
-    var taskId = parentEl.attr('data-task-id');
+    var id = parentEl.attr('data-task-id');
     var requestUrl = apiRoot + 'deleteTask';
 
     $.ajax({
       url: requestUrl + '/?' + $.param({
-        taskId: taskId
+        id: id
       }),
       method: 'DELETE',
       success: function() {
